@@ -5,7 +5,7 @@
     vcenter_pass: 
   tasks:
     - name: Deploy
-      vsphere_guest: HDC-TEST
+      vsphere_guest:
         vcenter_hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_user }}"
         password: "{{ vcenter_pass }}"
