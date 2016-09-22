@@ -1,12 +1,13 @@
 - hosts: HDC-TEST
   vars:
+    vcenter_hostname: hdc-vca-001.home-data.center.lan
     vcenter_user: 
     vcenter_pass: 
   tasks:
     - name: Deploy
       vsphere_guest: HDC-TEST
-        vcenter_hostname: "hdc-vca-001.home-data.center.lan"
-        username: "{{ vcenter_user}}"
+        vcenter_hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_user }}"
         password: "{{ vcenter_pass }}"
         guest: HDC-TEST
         state: powered_on
