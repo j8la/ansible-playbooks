@@ -1,5 +1,4 @@
-- hosts: HDC-TEST
-  vars:
+- vars:
     vcenter_hostname: hdc-vca-001.home-data.center.lan
     vcenter_user: 
     vcenter_pass: 
