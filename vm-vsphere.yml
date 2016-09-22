@@ -1,4 +1,6 @@
-- vars:
+- hosts: localhost
+  connection: local
+  vars:
     vcenter_hostname: hdc-vca-001.home-data.center.lan
     vcenter_user: 
     vcenter_pass: 
