@@ -1,0 +1,22 @@
+- hosts: HDC-TEST
+  vars:
+    username: 
+    password: 
+  tasks:
+    - name: Deploy
+      vsphere_guest: HDC-TEST
+        vcenter_hostname: hdc-vca-001.home-data.center.lan
+        username: "{{ vcenter_user}}"
+        password: "{{ vcenter_pass }}"
+        guest: HDC-TEST
+        state: powered_on
+        from_template: yes
+        template_src: HDC-TMP-CENTOS-7
+        cluster: HDC-CLU-001
+        resource_pool: "/Resources"
+        esxi:
+          datacenter: HDC
+          hostname: hdc-esx-001.home-data.center.lan
+        vm_extra_config:
+          notes: Created by Ansible
+          folder: Temp
