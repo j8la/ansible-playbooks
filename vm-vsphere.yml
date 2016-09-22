@@ -10,7 +10,6 @@
         username: "{{ vcenter_user }}"
         password: "{{ vcenter_pass }}"
         guest: HDC-TEST
-        state: powered_on
         from_template: yes
         template_src: HDC-TMP-CENTOS-7
         cluster: HDC-CLU-001
