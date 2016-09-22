@@ -1,22 +1,29 @@
 - hosts: localhost
   connection: local
   vars:
-    vcenter_hostname: hdc-vca-001.home-data.center.lan
+    vcenter_hostname:
     vcenter_user: 
     vcenter_pass: 
+    vm_name:
+    template:
+    datacenter:
+    cluster:
+    resource_pool:
+    esxi:
+    folder:
   tasks:
     - vsphere_guest:
         vcenter_hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_user }}"
         password: "{{ vcenter_pass }}"
-        guest: HDC-TEST
+        guest: "{{ vm_name }}"
         from_template: yes
-        template_src: HDC-TMP-CENTOS-7
-        cluster: HDC-CLU-001
-        resource_pool: "/Resources"
+        template_src: "{{ template }}"
+        cluster: "{{ cluster }}"
+        resource_pool: "{{ resource_pool }}"
         esxi:
-          datacenter: HDC
-          hostname: hdc-esx-001.home-data.center.lan
+          datacenter: "{{ datacenter }}"
+          hostname: "{{ esxi }}"
         vm_extra_config:
           notes: Created by Ansible
-          folder: Temp
+          folder: "{{ folder }}"
