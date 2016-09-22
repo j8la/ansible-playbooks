@@ -1,7 +1,7 @@
 - hosts: HDC-TEST
   vars:
-    username: 
-    password: 
+    vcenter_user: 
+    vcenter_pass: 
   tasks:
     - name: Deploy
       vsphere_guest: HDC-TEST
