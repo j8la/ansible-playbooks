@@ -1,7 +1,4 @@
 - hosts: localhost
-  connection: local
-  #become: true
-  #become_user: root
   tasks:
     - name: ROOT TEST
       shell: "env > env.txt"
