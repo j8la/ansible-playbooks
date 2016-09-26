@@ -4,4 +4,4 @@
   #become_user: root
   tasks:
     - name: ROOT TEST
-      shell: "env > /home/env.txt"
+      shell: "env > env.txt"
