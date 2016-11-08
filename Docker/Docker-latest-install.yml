@@ -2,14 +2,23 @@
   become: true
   become_user: root
   tasks:
-    - name: Yum update
-      command: yum update
+    - name: Uprade all packages
+      yum: name=* state=latest update_cache=yes 
 
-    - name: Install latest Docker version
-      command: curl -fsSL https://get.docker.com/ | sh
+    - name: Get Docker script
+      command: curl -fsSL https://get.docker.com/ > /tmp/docker.sh
+
+    - name: Script permissions
+      command: chmod +x /tmp/docker.sh
+
+    - name: Docker installation
+      command: /tmp/docker.sh
 
     - name: Enable Docker service
       command: systemctl enable docker.service
 
     - name: Start Docker service
       command: systemctl start docker
+
+    - name: Clean install
+      command: rm -f /tmp/docker.sh
