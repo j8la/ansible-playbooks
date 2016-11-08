@@ -1,0 +1,13 @@
+- hosts: "{{ server }}"
+  tasks:
+    - name: Yum update
+      command: sudo yum update
+
+    - name: Install latest Docker version
+      command: curl -fsSL https://get.docker.com/ | sh
+
+    - name: Enable Docker service
+      command: sudo systemctl enable docker.service
+
+    - name: Start Docker service
+      command: sudo systemctl start docker
