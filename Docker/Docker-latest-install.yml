@@ -1,13 +1,15 @@
 - hosts: "{{ server }}"
+  become: true
+  become_user: root
   tasks:
     - name: Yum update
-      command: sudo yum update
+      command: yum update
 
     - name: Install latest Docker version
       command: curl -fsSL https://get.docker.com/ | sh
 
     - name: Enable Docker service
-      command: sudo systemctl enable docker.service
+      command: systemctl enable docker.service
 
     - name: Start Docker service
-      command: sudo systemctl start docker
+      command: systemctl start docker
