@@ -1,5 +1,6 @@
 - hosts: localhost
   connection: local
+  gather_facts: no
   vars:
     vcenter_hostname: 
     vcenter_user: 
@@ -8,6 +9,7 @@
   tasks:
     - vsphere_guest:
         vcenter_hostname: "{{ vcenter_hostname }}"
+        validate_certs: False
         username: "{{ vcenter_user }}"
         password: "{{ vcenter_pass }}"
         guest: "{{ vm_to_delete }}"
